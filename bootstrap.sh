@@ -29,7 +29,7 @@ echo "host    all             all             0.0.0.0/0               md5" | sud
 sudo service postgresql start
 
 # create new user "root" with defined password "root" not a superuser
-sudo -u postgres psql -c "CREATE ROLE root LOGIN UNENCRYPTED PASSWORD 'root' NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;"
+sudo -u postgres psql -c "CREATE ROLE root LOGIN UNENCRYPTED PASSWORD '$PASSWORD' NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;"
 
 # create new database "database"
 sudo -u postgres psql -c "CREATE DATABASE database"
