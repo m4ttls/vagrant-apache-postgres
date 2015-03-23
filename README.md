@@ -1,6 +1,8 @@
-# vagrant-lamp-bootstrap
+# vagrant-apache-postgres
 
-A super-simple Vagrantfile / bootstrap.sh to setup a LAMP stack inside Vagrant 100% automatically.
+A super-simple Vagrantfile / bootstrap.sh to setup a web stack (apache, php) with postgres database, inside Vagrant 100% automatically.
+
+<b>It wasn't properly tested!</b>
 
 ### Whaaaaat ?
 
@@ -20,9 +22,9 @@ The bootstrap.sh will:
 
 * create a folder inside /var/www/html
 
-* install apache 2.4, php 5.5, MySQL, PHPMyAdmin, git and Composer
+* install apache 2.4, php 5.5, PostgreSQL, git and Composer
 
-* also setting a pre-chosen password for MySQL and PHPMyAdmin
+* also setting a pre-chosen password for Postgres
 
 * activate mod_rewrite and add *AllowOverride All* to the vhost settings
 
