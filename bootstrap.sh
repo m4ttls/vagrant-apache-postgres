@@ -5,15 +5,24 @@ PASSWORD='12345678'
 PROJECTFOLDER='myproject'
 
 # create project folder
-sudo mkdir "/var/www/html/${PROJECTFOLDER}"
+sudo mkdir "/var/lib/tomcat/webapps/${PROJECTFOLDER}"
 
 # update / upgrade
 sudo apt-get update
 sudo apt-get -y upgrade
 
 # install apache 2.5 and php 5.5
-sudo apt-get install -y apache2
-sudo apt-get install -y php5
+sudo apt-get install -y default-jdk
+sudo groupadd tomcat
+sudo useradd -s /bin/lase -g tomcat -d /opt/tomcat tomcat
+cd /tmp
+curl -O http://apache.dattatec.com/tomcat/tomcat-8/v8.5.15/bin/apache-tomcat-8.5.15.tar.gz
+sudo tar xzvf apache-tomcat-8*tar.gz -C /opt/tomcat --stip-components=1
+cd /opt/tomcat
+sudo chgrp -R tomcat /opt/tomcat
+sudo chmod -R g+r conf
+sudo chmod g+x conf
+sudo chown -R tomcat webapps/ work/ temp/ logs/
 
 # postgres
 sudo apt-get install -y postgresql postgresql-contrib
